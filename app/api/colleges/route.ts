@@ -1,14 +1,13 @@
-// app/api/colleges/route.ts
-import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
+import { NextResponse } from 'next/server'
+import { prisma } from '@/lib/prisma'
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-dynamic'
 
 export async function GET() {
   try {
-    const colleges = await prisma.college.findMany();
-    return NextResponse.json(colleges);
+    const colleges = await prisma.college.findMany()
+    return NextResponse.json(colleges)
   } catch (error) {
-    return NextResponse.json({ error: 'Failed to fetch colleges' }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to fetch colleges' }, { status: 500 })
   }
 }
